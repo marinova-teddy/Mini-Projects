@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        td, th {
+            border: 1px solid black;
+            width: 150px;
+            text-transform: capitalize;
+        }
+        table {
+            border-collapse: collapse;
+        }
+
+        .order {
+            background-color: lightskyblue;
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+            padding: 10px;
+            text-align: center;
+            display: inline-block;
+        }
+        .order h3 {
+            text-transform: capitalize;
+        }
+        .order button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<html>
+    <body>
+        <div id="loginDiv">
+            <h1>User Login:</h1>
+            <form onsubmit="loginUser(event)">
+                <div>
+                    <label>Username</label>
+                    <input id="username" type="text"\>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input id="password" type="password"\>
+                </div>
+                <input type="submit" value="Login"\>
+            </form>
+            <button onclick="location.href='/seller'">I am a seller!</button>
+            <button onclick="location.href='/register'">New here? Register</button>
+        </div>
+
+        <div id="orders" style="display: none;">
+            <p id="money"></p>
+            <p>Your orders:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="order_list">
+
+                </tbody>
+            </table>
+            <button onclick="calculateMoney()" style="margin-top:10px;">Do I have enough money?</button>
+            <button onclick="addMoney()">Add more money</button>
+            <div id="add_money"></div>
+
+            <div id="ordersDiv">
+                <p>Offered products:</p>
+                
+            </div>
+        </div>
+
+        <script src="socket.io/socket.io.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

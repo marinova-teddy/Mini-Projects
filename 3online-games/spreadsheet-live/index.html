@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      td {
+        border: 1px solid black;
+        width: 50px;
+        height: 12px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      #placeholder input {
+        border: 1px solid transparent;
+        width: 30px;
+        height: 8px;
+      }
+      #placeholder, #heading {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nameInputDiv">
+      <h1>Въведете име:</h1>
+      <form onsubmit="saveName(event)">
+        <input id="name" type="text"\>
+      </form>
+      <button onclick="saveName(event)">Запази име</button>
+    </div>
+    <div id="heading"></div>
+    <div id="placeholder"></div>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="sheet.js"></script>
+  </body>
+</html>

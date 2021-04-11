@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="nameInputDiv">
+            <h1>Въведете име:</h1>
+            <form onsubmit="saveName(event)">
+                <input id="name" type="text"\>
+            </form>
+            <button onclick="saveName(event)">Запази име</button>
+        </div>
+        <div id="chatHistory" style="display: none">
+            <h1 id="heading"></h1>
+            <div id="messages"></div>
+            <form onsubmit="send(event)">
+                <input id="toSend" type="text"\>
+            </form>
+            <button id="bottom" onclick="send(event)">Изпрати</button>
+        </div>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="messenger.js"></script>
+    </body>
+</html>

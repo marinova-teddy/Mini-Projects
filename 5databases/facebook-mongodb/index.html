@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .user {
+                background-color: lightskyblue;
+                width: 200px;
+                height: 150px;
+                margin: 20px;
+                padding: 10px;
+                text-align: center;
+            }
+            #profileDiv {
+                background-color: orange;
+                width: 30%;
+                height: 200px;
+                margin: auto;
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loginDiv">
+            <fieldset>
+                <form onsubmit="saveName(event)">
+                    <legend>Вход в профила</legend>
+                    <label for="username">Име</label>
+                    <input id="username" type="text" required\>
+                    <br>
+                    <label for="password">Парола</label>
+                    <input id="password" type="password" required\>
+                </form>
+            </fieldset>
+            <button onclick="saveName(event)">Влез</button>
+            <a href="./register.html"><button>Регистрация на нов потребител</button></a>
+        </div>
+        <div id="infoDiv" style="display: none">
+            <div id="profileDiv">
+                <h1 id="profileName"></h1>
+                <p id="profileAbout"></p>
+                <button onclick="editBio(event)">Edit</button>
+                <div id="profileEdit" style="display: none">
+                    <textarea id="bioTextarea"></textarea>
+                    <button onclick="saveBio(event)">Save</button>
+                </div>
+            </div>
+            <div id="friends">
+                <form onsubmit="searchFriend(event)">
+                    <h2>Friends</h2>
+                    <label for="search">Search friends</label>
+                    <input type="text" id="friendSearch">
+                    <button onclick="searchFriend(event)">Search</button>
+                </form>
+            </div>
+            <div id="users">
+                <form onsubmit="searchUser(event)">
+                    <h2>Find friends</h2>
+                    <label for="search">Search users</label>
+                    <input type="text" id="userSearch">
+                    <button onclick="searchUser(event)">Search</button>
+                </form>
+            </div>
+        </div>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="fb.js"></script>
+    </body>
+</html>

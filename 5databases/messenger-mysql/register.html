@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="loginDiv">
+            <fieldset>
+                <form onsubmit="newName(event)">
+                    <legend>Регистрация на нов потребител</legend>
+                    <label for="name">Създайте име</label>
+                    <input id="name" type="text" required\>
+                    <br>
+                    <label for="password">Създайте парола</label>
+                    <input id="password" type="password" required\>
+                    <br>
+                    <label for="passwordconfirm">Създайте парола</label>
+                    <input id="passwordconfirm" type="password" required\>
+                </form>
+            </fieldset>
+            <button onclick="newName(event)">Запази име</button>
+            <a href="../index.html"><button>Вече имате акаунт?</button></a>
+        </div>
+        <div id="chatHistory" style="display: none">
+            <h1 id="heading"></h1>
+            <div id="messages"></div>
+            <form onsubmit="send(event)">
+                <input id="toSend" type="text"\>
+            </form>
+            <button id="bottom" onclick="send(event)">Изпрати</button>
+        </div>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="messenger.js"></script>
+    </body>
+</html>
