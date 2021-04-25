@@ -1,0 +1,16 @@
+<html>
+	<body>
+		<script>
+			function hanoi(n, initial, final) {
+				let third = String.fromCharCode( 198 - initial.charCodeAt(0) - final.charCodeAt(0) );
+
+				if (n==0) return;
+
+				f(n-1, initial, third);
+				console.log( n + ": " + initial + " -> " + final + "\n" );
+				f(n-1, third, final);
+
+			}
+		</script>
+	</body>
+</html>

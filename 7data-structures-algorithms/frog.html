@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<script>
+		// recursive idea
+		// memoization (result: linear speed)
+		// non-recursive code (easier to understand and to avoid mistakes)
+			function jumps(n, a, b, c) { 
+				if (n<0) return 0;
+				if (n<a && n<b && n<c) return 0;
+				if (n==0) return 1;
+				if (n==a && a<b && a<c) return 1;
+				
+				dp[0] = 1;
+				for (let i=0;i<=n;i++) {
+					dp[i]=0;
+					if (i>=a) dp[i]+=dp[i-a];
+					if (i>=b) dp[i]+=dp[i-b];
+					if (i>=c) dp[i]+=dp[i-c];
+				}
+
+				return ( jumps(n-a,a,b,c) + jumps(n-b,a,b,c) + jumps(n-c,a,b,c) );
+			}
+		</script>
+	</body>
+</html>
