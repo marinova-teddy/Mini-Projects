@@ -1,14 +1,28 @@
 <html>
 	<body>
 		<script>
-			// bombs = [{x: , y: }, {x: , y: }, {x: , y: }, {x: , y: }, ...]
+			// bombs = [x1, y1, x2, y2, x3, y3, ...]
 
-			function mase(n, m, bombs) {
+			function maze(n, m, bombs) {
+				console.log(n)
+				console.log(m)
+				console.log(bombs)
 				let dp = [];
+				for (let i=0;i<bombs.length;i+=2) {
+					dp[i]=[];
+					dp[i+1]=[];
+					dp[bombs[i]-1][bombs[i+1]-1] = 0;
+				}
 
 				for (let i=0; i<n; i++) {
-					// unfinished (hw)
+					dp[i]=[];
+					for (let j=0; j<m; j++) {
+						if (i==0 && dp[i][j]==null) dp[i][j] = 1;
+						if (dp[i][j]==null) dp[i][j] = dp[i-1][j] + dp[i][j-1];
+					}
 				}
+
+				return dp[n-1][m-1];
 			}
 		</script>
 	</body>
